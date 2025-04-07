@@ -1,0 +1,581 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+.dashboard-background {
+  background: url('../assets/stadium.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+}
+
+.dashboard-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+  z-index: 1;
+}
+
+.dashboard {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-radius: 16px;
+  max-width: 1200px;
+  width: 90%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Header Styles */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a5d1a;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  right: 35px;
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #1a5d1a;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.avatar:hover {
+  transform: scale(1.05);
+}
+
+/* Welcome Section */
+.dashboard-welcome {
+    background: url('../assets/stadium.jpg') no-repeat center center;
+    background-size: cover;
+    margin: -30px -30px 30px -30px;
+    padding: 40px 30px;
+    border-radius: 16px 16px 0 0;
+    color: white;
+    text-align: center;
+    position: relative;
+  }
+  
+  /* Add an overlay to ensure text readability */
+  .dashboard-welcome::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+    border-radius: 16px 16px 0 0;
+    z-index: 0;
+  }
+  
+  /* Make sure content is above the overlay */
+  .dashboard-welcome h1,
+  .dashboard-welcome .welcome-subtitle,
+  .dashboard-welcome .stats-summary {
+    position: relative;
+    z-index: 1;
+  }
+.stats-summary {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+/* Section Styles */
+.dashboard-section {
+  margin-bottom: 30px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.dashboard-section h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.view-all {
+  color: #1a5d1a;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.view-all:hover {
+  color: #3a8c3a;
+  text-decoration: underline;
+}
+
+/* Card Styles */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  min-width: 250px;
+  flex: 1;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Contest Card Styles */
+.contest-card {
+  padding-top: 40px;
+}
+
+.card-status {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 5px 15px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: white;
+  border-radius: 0 0 12px 0;
+}
+
+.live {
+  background-color: #e74c3c;
+}
+
+.upcoming {
+  background-color: #3498db;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.card-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 0.85rem;
+}
+
+.participants {
+  color: #666;
+}
+
+.prize {
+  font-weight: 600;
+  color: #f39c12;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+/* Match Card Styles */
+.match-card {
+  padding: 15px;
+}
+
+.match-league {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.match-teams {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 35%;
+}
+
+.team-logo {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #f1f1f1, #e1e1e1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  color: #333;
+  border: 2px solid #ddd;
+}
+
+.team-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.match-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+}
+
+.match-time {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a5d1a;
+}
+
+.match-status {
+  font-size: 0.7rem;
+  color: #777;
+}
+
+.match-stadium {
+  font-size: 0.8rem;
+  color: #888;
+  text-align: center;
+  margin-top: 5px;
+}
+
+/* Team Card Styles */
+.team-card {
+  position: relative;
+  padding-top: 20px;
+}
+
+.team-name {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.team-status {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #1a5d1a;
+  color: white;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.team-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.team-stat {
+  text-align: center;
+}
+
+.team-captain {
+  background-color: #f9f9f9;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.captain-label {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.captain-name {
+  font-weight: 600;
+  color: #333;
+}
+
+.team-strength {
+  margin-bottom: 20px;
+}
+
+.strength-label {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.strength-bar {
+  height: 8px;
+  background-color: #eee;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.strength-progress {
+  height: 100%;
+  background: linear-gradient(to right, #1a5d1a, #3a8c3a);
+  border-radius: 4px;
+  transition: width 1s ease-in-out;
+}
+
+.strength-value {
+  font-size: 0.8rem;
+  color: #666;
+  text-align: right;
+}
+
+.view-team-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #1a5d1a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.view-team-btn:hover {
+  background-color: #3a8c3a;
+}
+
+/* Player List Styles */
+.player-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.player:last-child {
+  border-bottom: none;
+}
+
+.player-position {
+  background-color: #f1f1f1;
+  color: #333;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-right: 10px;
+  min-width: 40px;
+  text-align: center;
+}
+
+.player-info {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.player-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.player-points {
+  font-size: 0.8rem;
+  color: #1a5d1a;
+  font-weight: 600;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .card-container {
+    flex-direction: column;
+  }
+  
+  .card {
+    width: 100%;
+  }
+  
+  .stats-summary {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    margin-top: 20px;
+    padding: 20px;
+    width: 95%;
+  }
+  
+  .dashboard-welcome {
+    margin: -20px -20px 20px -20px;
+    padding: 30px 20px;
+  }
+  
+  .dashboard-welcome h1 {
+    font-size: 1.8rem;
+  }
+  
+  .stats-summary {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .stat-item {
+    width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .user-profile {
+    align-self: flex-end;
+  }
+  
+  .stats-summary {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .stat-item {
+    width: 100%;
+  }
+  
+  .match-teams {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .team, .match-info {
+    width: 100%;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
