@@ -1,0 +1,107 @@
+.fixture_card {
+  background-color: var(--darker-bg);
+  border: 1px solid var(--primary-green);
+  border-radius: 12px;
+  text-align: center;
+  padding: 1.5rem;
+  margin: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 255, 135, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fixture_card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 255, 135, 0.2);
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--primary-green);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--accent-hover);
+}
+
+h3 {
+  padding: 15px 0 0 0;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(0, 255, 135, 0.3);
+}
+
+.fixture_card p {
+  margin: 0px;
+  padding-bottom: 5px;
+  color: var(--text-secondary);
+}
+
+.fixtures_list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.players-scored {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background: rgba(0, 255, 135, 0.05);
+  border-radius: 8px;
+  margin: 0.5rem 0;
+}
+
+.left {
+  min-width: 135px;
+  text-align: left;
+  color: var(--primary-green);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Score Display */
+.score {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-green);
+  text-shadow: 0 0 15px rgba(0, 255, 135, 0.4);
+  margin: 1rem 0;
+}
+
+/* Team Names */
+.team-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0.5rem 0;
+}
+
+/* Match Date */
+.match-date {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  opacity: 0.8;
+}
+
+/* Status Badge */
+.match-status {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: var(--secondary-purple);
+  color: var(--primary-green);
+  margin-bottom: 0.5rem;
+}
