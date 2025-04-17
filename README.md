@@ -22,7 +22,6 @@ A full-featured Premier League Fantasy Football web application that lets you ma
 
 - **Frontend**: React + Vite + CSS  
 - **Backend**: Java (Spring Boot)  
-- **Authentication**: Google OAuth2  
 - **Live Data**: (Live scores and player stats integrated via APIs)
 
 ---
